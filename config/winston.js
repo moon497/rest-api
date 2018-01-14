@@ -9,8 +9,8 @@ const winston = require('winston')
 moment.locale('ko')
 
 module.exports = function () {  // 모듈화
-  const myConsoleFormat = winston.format.printf(function (info) { // 전용 양식
-    return `${info.level}: ${info.message} (${moment().format('L HH:mm')})`;
+  const myConsoleFormat = winston.format.printf(function (info) { // 전용 양식    
+    return `[${moment().format('HH:mm:ss')}] ${info.level}: '${info.message}'`;
   });
   
   const logger = winston.createLogger({
